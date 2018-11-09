@@ -1,0 +1,14 @@
+{
+  "name": "devlpcode",
+  "version": "1.0.0",
+  "description": "A *REAL TIME* programming webapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "npm run frontend | npm run backend",
+    "frontend": "npm --prefix frontend start",
+    "backend": "echo BACK"
+  },
+  "author": "",
+  "license": "ISC"
+}
