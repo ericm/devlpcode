@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { NavBarProps } from '../../../interfaces';
-import * as s from './NavBar.css';
+import Styles from './NavBar.styles';
 import logo from './static/logo.svg';
 
+const s = new Styles;
 
 class NavBar extends React.Component<NavBarProps, {title: string, loggedin: boolean}> {
 
@@ -13,12 +14,15 @@ class NavBar extends React.Component<NavBarProps, {title: string, loggedin: bool
 
   public render() {
     return (
-      <header>
-        <img src={logo} alt={this.state.title} />
-        <nav style={s.nav}>
-          <ul>
-            <li>
-              <a href={"#"}>Home</a>
+      <header className={s.main}>
+        <img className={s.logo} src={logo} alt={this.state.title} />
+        <nav className={s.nav}>
+          <ul className={s.ul}>
+            <li className={s.item}>
+              <a className={s.link} href={"#"}>Home</a>
+            </li>
+            <li className={s.item}>
+              <a className={s.link} href={"#"}>About</a>
             </li>
           </ul>
         </nav>
