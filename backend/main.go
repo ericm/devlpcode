@@ -4,6 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+
+	"fmt"
 )
 
 /*
@@ -30,8 +32,9 @@ func setupRouter() *gin.Engine {
 	r.GET("/test/:user/:repo/", func(c *gin.Context) {
 		user := c.Param("user")
 		repo := c.Param("repo")
-		//value, ok := db[user]
 		c.JSON(http.StatusOK, gin.H{"user": user, "repo": repo})
+		fmt.Println(c)
+
 	})
 
 	return r
