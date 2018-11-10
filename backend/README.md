@@ -1,7 +1,8 @@
 # devlpcode backend
-## Requirements
-- Go-Dep
+
 - MongoDB
+
+- Go-Dep
 
 ## Installation
 
