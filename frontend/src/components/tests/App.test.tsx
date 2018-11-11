@@ -18,7 +18,8 @@ describe('<App />', () => {
 		expect(App.prototype.componentDidMount).toHaveProperty('callCount', 1);
 	});
 	it('calls NavBar', () => {
-		const info: AppInfo = {title: "devlpcode"};
+		let info: AppInfo;
+		info = {title: "devlpcode"};
 		let user: UserStatus;
 		user = {loggedin: false};
 		const wrapper = mount(<App />);

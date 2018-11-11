@@ -10,15 +10,22 @@ import Styles from './App.styles';
 const history = createBrowserHistory();
 const s = new Styles;
 
-const info: AppInfo = {title: "devlpcode"};
+let info: AppInfo = {title: "loading"};
 
+// TODO: get this info from ../data/queries/users.ts
 let user: UserStatus;
 user = {loggedin: false};
 
-class App extends React.Component<{}, {}> {
-  public componentDidMount() {
-    user = {loggedin: false};
+class App extends React.Component<{}, {user: UserStatus, info: AppInfo}> {
+  constructor(props: any) {
+    super(props);
+    this.state = {user, info};
   }
+  public componentDidMount() {
+    info = {title: "devlpcode"};
+    this.setState({user, info});
+  }
+  
   public render() {
     return (
       <div className={s.body}>
