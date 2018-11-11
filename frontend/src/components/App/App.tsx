@@ -16,6 +16,9 @@ let user: UserStatus;
 user = {loggedin: false};
 
 class App extends React.Component<{}, {}> {
+  public componentDidMount() {
+    user = {loggedin: false};
+  }
   public render() {
     return (
       <div className={s.body}>
