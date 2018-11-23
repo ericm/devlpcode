@@ -10,6 +10,17 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+
+    <script>
+      function rl() {hljs.highlightBlock(document.getElementById('code'));}
+      window.addEventListener('keyup', rl);
+      window.addEventListener('keydown', rl);
+      window.addEventListener('load', rl);
+      window.addEventListener('change', rl);
+    </script>
+    
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.

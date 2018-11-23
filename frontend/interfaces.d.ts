@@ -12,3 +12,7 @@ export interface NavBarProps {
     status: UserStatus,
     info: AppInfo
 }
+
+export interface pgState {
+    text: string
+}

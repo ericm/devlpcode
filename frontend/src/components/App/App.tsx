@@ -5,6 +5,7 @@ import { Route, Router } from 'react-router';
 import { AppInfo, UserStatus } from '../../../interfaces';
 import Home from '../Home';
 import NavBar from '../NavBar';
+import Playground from '../Playground';
 import Styles from './App.styles';
 
 const history = createBrowserHistory();
@@ -31,7 +32,12 @@ class App extends React.Component<{}, {user: UserStatus, info: AppInfo}> {
       <div className={s.body}>
         <NavBar status={user} info={info} />
         <Router history={history}>
-          <Route exact={true} path="/" component={Home} />
+        
+          <div>
+            <Route exact={true} path="/" component={Home} />
+            <Route path="/edit" component={Playground} />
+          </div>
+
         </Router>
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
