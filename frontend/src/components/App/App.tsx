@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Route, Router } from 'react-router';
 
 import { AppInfo, UserStatus } from '../../../interfaces';
+import Users from '../../data/queries/users'
 import Home from '../Home';
 import NavBar from '../NavBar';
 import Playground from '../Playground';
@@ -15,7 +16,7 @@ let info: AppInfo = {title: "loading"};
 
 // TODO: get this info from ../data/queries/users.ts
 let user: UserStatus;
-user = {loggedin: false};
+user = new Users("eric").user;
 
 class App extends React.Component<{}, {user: UserStatus, info: AppInfo}> {
   constructor(props: any) {

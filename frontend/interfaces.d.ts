@@ -13,6 +13,11 @@ export interface NavBarProps {
     info: AppInfo
 }
 
+export interface Login {
+    username: string,
+    password: string
+}
+
 export interface pgState {
     text: string,
     enableBasicAutocompletion: boolean,
