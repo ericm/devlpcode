@@ -13,20 +13,48 @@ class Playground extends React.Component<{}, pgState> {
 
 	constructor(props: any) {
 		super(props);
-		this.state = {text: "console.log();"};
+		this.state = {text: "console.log();", enableBasicAutocompletion: true, enableLiveAutocompletion: true, enableSnippets: true};
 		this.handler= this.handler.bind(this);
 	}
 
 	public render() {
+		let side: JSX.Element;
+		side = (
+			<section className={s.side}>
+				<ul className={s.files}>
+					<li>
+						file
+					</li>
+				</ul>
+			</section>
+		)
+
 		return (
-			<article>
-				<AceEditor
+			<article className={s.grid}>
+				{side}
+				<section className={s.live}>
+					<AceEditor
 					mode="javascript"
 					theme="monokai"
 					name="coder"
+					className={s.code}
+					width={"100%"}
+					wrapEnabled={true}
 					fontSize={20}
+					value={this.state.text}
+					showPrintMargin={false}
 					editorProps={{$blockScrolling: true}}
+					highlightActiveLine={true}
+					setOptions={{
+						enableBasicAutocompletion: this.state.enableBasicAutocompletion,
+						enableLiveAutocompletion: this.state.enableLiveAutocompletion,
+						enableSnippets: this.state.enableSnippets,
+						showLineNumbers: true,
+						tabSize: 4,
+					  }}
 				/>
+				</section>
+				
 				<textarea onKeyUp={this.handler} className={s.secret} />
 			</article>
 			

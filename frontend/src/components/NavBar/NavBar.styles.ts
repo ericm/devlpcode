@@ -24,6 +24,7 @@ export default class Styles {
         top: 0,
         verticalAlign: 'middle',
         width: '100%',
+        zIndex: 100000,
     });
     public ul = style({
         listStyle: 'none',

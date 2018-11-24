@@ -14,5 +14,8 @@ export interface NavBarProps {
 }
 
 export interface pgState {
-    text: string
+    text: string,
+    enableBasicAutocompletion: boolean,
+    enableLiveAutocompletion: boolean,
+    enableSnippets: boolean
 }
