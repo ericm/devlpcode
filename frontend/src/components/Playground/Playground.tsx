@@ -1,11 +1,14 @@
-import * as brace from 'brace';
+
+/*tslint-disable no-alert, no-console */
+import 'brace';
+import 'brace/mode/javascript';
+import 'brace/theme/monokai';
 import * as React from 'react';
 import AceEditor from 'react-ace';
 import { pgState } from '../../../interfaces';
 import Styles from './Playground.styles';
 const s = new Styles;
-brace.acequire('brace/theme/github');
-brace.acequire('brace/mode/javascript');
+
 class Playground extends React.Component<{}, pgState> {
 
 	constructor(props: any) {
@@ -18,8 +21,8 @@ class Playground extends React.Component<{}, pgState> {
 		return (
 			<article>
 				<AceEditor
-					mode="javscript"
-					theme="github"
+					mode="javascript"
+					theme="monokai"
 					name="coder"
 					fontSize={20}
 					editorProps={{$blockScrolling: true}}
