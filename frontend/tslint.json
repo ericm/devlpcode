@@ -1,5 +1,6 @@
 {
   "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "noUnusedLocals": false,
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
