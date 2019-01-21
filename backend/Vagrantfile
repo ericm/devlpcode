@@ -1,0 +1,33 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/trusty64"
+
+  config.vm.provision "shell", inline: <<-SHELL
+
+      export VERSION=1.11.4
+
+      mkdir /go
+      mkdir /go/src
+      mkdir /go/src/devlpcode
+      mkdir /go/bin
+
+      wget https://dl.google.com/go/go$VERSION.linux-amd64.tar.gz
+      tar -C /usr/local -xzf go$VERSION.linux-amd64.tar.gz
+      export PATH=$PATH:/usr/local/go/bin:/go/bin
+      export GOPATH=/go
+      echo "export PATH=$PATH:/usr/local/go/bin:/go/bin" >> /home/vagrant/.bashrc
+      echo "export GOPATH=/go" >> /home/vagrant/.bashrc
+
+      curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+
+      # subject to change
+      cd /go/src/devlpcode
+      dep ensure
+      
+    SHELL
+
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  config.vm.synced_folder ".", "/go/src/devlpcode"
+
+end
